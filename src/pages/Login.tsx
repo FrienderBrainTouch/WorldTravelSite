@@ -28,7 +28,7 @@ export default function Login() {
     <div className={styles.wrapper}>
       <div className={styles.card}>
         <div className={styles.logo}>
-          <h1 className={styles.title}>세계여행 VR 학습도구</h1>
+          <h1 className={styles.title}>세계여행 VR 나라 활동</h1>
           <p className={styles.subtitle}>VR로 다녀온 나라를 퀴즈로 복습해요</p>
         </div>
         <form onSubmit={handleSubmit} className={styles.form}>
