@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import type { Country } from '../types/data';
 import type { CountryQuestions, ActivityType, ChoiceQuestion, OxItem } from '../types/data';
 import { getFlagUrl, getFlagCdnUrl, NAME_TO_FLAG_CODE } from '../utils/flagUrl';
+import { randomizeQuestions } from '../utils/shuffle';
 import styles from './ActivityPlay.module.css';
 
 const SINGLE_ACTIVITIES: ActivityType[] = ['flag_find', 'culture_find'];
@@ -38,7 +39,7 @@ export default function ActivityPlay() {
       .then(([countries, q]: [Country[], CountryQuestions]) => {
         const c = countries.find((x: Country) => x.id === countryId);
         setCountry(c ?? null);
-        setQuestions(q);
+        setQuestions(randomizeQuestions(q));
         setError('');
       })
       .catch(() => {
