@@ -1,3 +1,9 @@
+/**
+ * 나라 목록 화면.
+ *
+ * `public/data/countries.json`을 로드해 카드 그리드로 보여주고,
+ * 선택한 나라의 활동 목록(`/countries/:countryId`)으로 이동합니다.
+ */
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { Country } from '../types/data';

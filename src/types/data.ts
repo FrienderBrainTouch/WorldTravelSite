@@ -1,3 +1,9 @@
+/**
+ * 화면과 JSON 데이터 사이에서 공유되는 타입 정의.
+ *
+ * 데이터는 런타임에 `public/data/**`에서 fetch로 로드되며, 이 타입은 그 스키마를 고정합니다.
+ * (예: `countries.json`, `questions/{countryId}.json`)
+ */
 export interface Country {
   id: string;
   name: string;

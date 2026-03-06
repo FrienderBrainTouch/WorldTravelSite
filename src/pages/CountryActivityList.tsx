@@ -1,3 +1,9 @@
+/**
+ * 특정 나라의 “활동 선택” 화면.
+ *
+ * - URL의 `:countryId`로 나라를 찾고 배너를 구성합니다.
+ * - 활동 목록은 타입 정의(`ACTIVITY_LIST`)를 단일 소스로 사용합니다.
+ */
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import type { Country } from '../types/data';

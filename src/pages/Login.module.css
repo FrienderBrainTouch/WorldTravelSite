@@ -1,3 +1,8 @@
+/*
+  Login 화면 전용 스타일.
+  - 레이아웃은 중앙 정렬 카드 형태
+  - 색/간격/라운드 값은 전역 CSS 변수(--color-*, --space-*, --radius-*)를 사용
+*/
 .wrapper {
   min-height: 100vh;
   min-height: 100dvh;

@@ -15,6 +15,7 @@ export function shuffle<T>(arr: T[]): T[] {
   return out;
 }
 
+/** 선택지(옵션) 순서를 섞되, `correctAnswer` 문자열 값은 그대로 유지합니다. */
 function shuffleOptions(q: ChoiceQuestion): ChoiceQuestion {
   return { ...q, options: shuffle(q.options) };
 }

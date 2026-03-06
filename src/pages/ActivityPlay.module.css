@@ -1,3 +1,9 @@
+/*
+  ActivityPlay 화면 전용 스타일.
+  - 공통 레이아웃(wrapper/header/main)을 기반으로
+    활동 타입별(국기 옵션, OX 스플릿, 결과 영역) 컴포넌트를 재사용합니다.
+  - 색/간격/타이포는 전역 CSS 변수(--color-*, --space-*, --text-*)를 사용합니다.
+*/
 .wrapper {
   min-height: 100vh;
   min-height: 100dvh;

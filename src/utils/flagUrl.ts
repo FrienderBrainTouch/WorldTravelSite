@@ -1,3 +1,9 @@
+/**
+ * 국기 이미지 로딩 유틸.
+ *
+ * 기본은 `public/flags` 로컬 파일을 사용하고, 로딩 실패 시 `flagcdn`으로 폴백합니다.
+ * (UI에서는 `img onError`로 폴백 처리)
+ */
 /** 국기 이미지 URL. 로컬 public/flags에 파일이 있으면 사용, 없으면 flagcdn CDN 사용. */
 export function getFlagUrl(code: string, _width?: 80 | 160 | 320): string {
   if (!code) return '';

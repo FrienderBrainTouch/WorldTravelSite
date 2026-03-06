@@ -1,3 +1,8 @@
+/*
+  CountryActivityList 화면 전용 스타일.
+  - 상단 배너(나라 정보) + 활동 카드 그리드 구성
+  - 아이콘은 data-type 속성으로 색상/그라데이션을 분기
+*/
 .wrapper {
   min-height: 100vh;
   min-height: 100dvh;

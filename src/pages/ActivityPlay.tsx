@@ -1,3 +1,14 @@
+/**
+ * 활동 진행 화면.
+ *
+ * 화면 진입 시:
+ * - 나라 메타(`countries.json`)와 해당 나라 문제(`questions/:countryId.json`)를 로드합니다.
+ * - 문제/선택지 순서는 `randomizeQuestions()`로 매 진입마다 섞습니다.
+ *
+ * 활동 타입에 따라 서로 다른 플레이 UI를 렌더링합니다.
+ * - 단일 문항: `flag_find`, `culture_find`
+ * - 다중 문항: `food_find`, `landmark_find`, `ox_quiz`
+ */
 import { useEffect, useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import type { Country } from '../types/data';
@@ -6,8 +17,10 @@ import { getFlagUrl, getFlagCdnUrl, NAME_TO_FLAG_CODE } from '../utils/flagUrl';
 import { randomizeQuestions } from '../utils/shuffle';
 import styles from './ActivityPlay.module.css';
 
+/** 문항이 1개(ChoiceQuestion 단일 객체)인 활동 타입들. */
 const SINGLE_ACTIVITIES: ActivityType[] = ['flag_find', 'culture_find'];
 
+/** URL의 `activityType` → 질문 데이터 키(`CountryQuestions`) 매핑. */
 function toDataKey(type: ActivityType): keyof CountryQuestions {
   const map: Record<ActivityType, keyof CountryQuestions> = {
     flag_find: 'flagFind',
@@ -118,6 +131,7 @@ export default function ActivityPlay() {
   );
 }
 
+/** 단일 문항(선택지 1회 선택) 플레이. 국기 활동은 옵션을 이미지(국기)로도 표시할 수 있습니다. */
 function SingleChoicePlay({
   country,
   question,
@@ -216,6 +230,7 @@ function SingleChoicePlay({
   );
 }
 
+/** 여러 문항을 순서대로 진행하는 4지선다(또는 유사) 플레이. */
 function MultiChoicePlay({
   country,
   questions: list,
@@ -310,6 +325,7 @@ function MultiChoicePlay({
   );
 }
 
+/** O/X 퀴즈 플레이(각 문항당 O/X 1회 선택). */
 function OxQuizPlay({
   country,
   items,

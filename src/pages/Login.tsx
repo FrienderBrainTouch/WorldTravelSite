@@ -1,3 +1,9 @@
+/**
+ * 로그인 화면(데모용).
+ *
+ * `AuthContext`의 `login()`을 통해 “간단한 비밀번호 확인”만 수행하고,
+ * 성공 시 나라 목록(`/countries`)으로 진입합니다.
+ */
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
