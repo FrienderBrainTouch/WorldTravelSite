@@ -28,6 +28,7 @@ export const NAME_TO_FLAG_CODE: Record<string, string> = {
   미국: 'us',
   호주: 'au',
   한국: 'kr',
+  대한민국: 'kr',
   일본: 'jp',
   중국: 'cn',
   아일랜드: 'ie',
