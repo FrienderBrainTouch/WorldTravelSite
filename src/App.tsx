@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import CountryList from './pages/CountryList';
 import CountryActivityList from './pages/CountryActivityList';
 import ActivityPlay from './pages/ActivityPlay';
+import AppLayout from './components/AppLayout';
 
 /** 로그인 상태가 아니면 `/login`으로 리다이렉트하는 보호 라우트. */
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
@@ -21,33 +22,35 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route
-        path="/countries"
-        element={
-          <ProtectedRoute>
-            <CountryList />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/countries/:countryId"
-        element={
-          <ProtectedRoute>
-            <CountryActivityList />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/countries/:countryId/activity/:activityType"
-        element={
-          <ProtectedRoute>
-            <ActivityPlay />
-          </ProtectedRoute>
-        }
-      />
-      <Route path="/" element={<Navigate to="/login" replace />} />
-      <Route path="*" element={<Navigate to="/login" replace />} />
+      <Route element={<AppLayout />}>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/countries"
+          element={
+            <ProtectedRoute>
+              <CountryList />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/countries/:countryId"
+          element={
+            <ProtectedRoute>
+              <CountryActivityList />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/countries/:countryId/activity/:activityType"
+          element={
+            <ProtectedRoute>
+              <ActivityPlay />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </Route>
     </Routes>
   );
 }
